@@ -6,23 +6,21 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=landscape"
-    />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=landscape"/>
+    <link rel="icon" href="Animals/Изображение WhatsApp 2025-11-06 в 15.47.45_a5c71d53.png" type="image/png">
     <script
       src="https://kit.fontawesome.com/9044aa443b.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <title>Paradise</title>
   </head>
-  <body>
+  <body class="page2">
     <nav class="main_div">
       <div class="logo_main">
         <img
           class="img_logo"
           src="Animals/Изображение WhatsApp 2025-11-06 в 15.47.45_a5c71d53.jpg"
-          alt=""
-        />
-        <p><a href="main.html">Paradise</a></p>
+          alt=""/>
+        <p><a href="index.html">Paradise</a></p>
       </div>
       <div class="menu_main">
         <ul class="menu">
@@ -115,134 +113,7 @@
         <button type="submit" id="buyTicket">Купить</button>
       </form>
     </div>
-
     <div id="chatBox"></div>
-    <script>
-      let TOKEN = "7846776009:AAEx5nvH0KngFDt3wk1G2FGyVsJkXKHGm5Q";
-      let CHAT_ID = "6333476986";
-      let URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-
-      const buyBtn = document.querySelectorAll(".buy-btn");
-      const ticketInput = document.getElementById("ticketType");
-      const closeT = document.querySelector(".close");
-      const telbot = document.querySelector(".telbot");
-      const chat = document.getElementById("chatBox");
-      const ticketForm = document.getElementById("tgf3");
-
-      buyBtn.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const ticketName =
-            btn.parentElement.querySelector(".ticket-title").textContent;
-          ticketInput.value = ticketName;
-          telbot.style.display = "flex";
-        });
-      });
-
-      closeT.onclick = () => (telbot.style.display = "none");
-
-      window.onclick = (e) => {
-        if (e.target === telbot) telbot.style.display = "none";
-      };
-
-      function openPayment(price) {
-        const payWindow = document.createElement("div");
-        payWindow.className = "pay-modal";
-        payWindow.innerHTML = `
-    <div class="pay-box">
-      <h3>Оплата билета</h3>
-      <label>Выберите способ оплаты:</label>
-      <select id="payMethod">
-        <option value="MBank">Mbank</option>
-        <option value="О!Деньги">О!Деньги</option>
-        <option value="Balance.kg">Balance.kg</option>
-        <option value="Visa / Mastercard">Visa / Mastercard</option>
-      </select>
-      <label>Сумма к оплате:</label>
-      <input type="text" id="payAmount" value="${price} сом" readonly>
-      <button id="confirmPay">Оплатить</button>
-    </div>
-  `;
-        document.body.appendChild(payWindow);
-
-        setTimeout(() => payWindow.classList.add("show"), 10);
-
-        document.getElementById("confirmPay").onclick = () => {
-          payWindow.remove();
-          SuccessMessage();
-          sendTelegram();
-          openTelegramClient();
-        };
-      }
-
-      function SuccessMessage() {
-        chat.style.display = "block";
-        chat.innerHTML = `🐾 Спасибо за покупку!<br>✔ Оплата прошла успешно!<br>Ваш билет бронирован.`;
-        setTimeout(() => {
-          chat.style.display = "none";
-        }, 5000);
-      }
-
-      let sending = false;
-      function sendTelegram() {
-        if (sending) return;
-        sending = true;
-
-        const name = document.getElementById("nameInput").value;
-        const phone = document.getElementById("phoneInput").value;
-        const date = document.getElementById("dateInput").value;
-        const type = document.getElementById("ticketType").value;
-
-        let message = `
-📩 *Покупка билета — ОПЛАЧЕНО*  
-👤 Имя: ${name}  
-📞 Телефон: ${phone}  
-📅 Дата: ${date}  
-🎫 Тип билета: ${type}
-  `;
-
-        fetch(URL_API, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: message,
-            parse_mode: "Markdown",
-          }),
-        }).finally(() => (sending = false));
-      }
-
-      // Открываем Telegram клиенту через payload в /start
-      function openTelegramClient() {
-        const name = document.getElementById("nameInput").value;
-        const phone = document.getElementById("phoneInput").value;
-        const date = document.getElementById("dateInput").value;
-        const type = document.getElementById("ticketType").value;
-
-        // Формируем payload
-        const payload = encodeURIComponent(
-          `ticket|${type}|${date}|${phone}|${name}`
-        );
-        const telegramLink = `https://t.me/Paradise_clients24_bot?start=${payload}`;
-        window.open(telegramLink, "_blank");
-      }
-
-      ticketForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        telbot.style.display = "none";
-        const type = document.getElementById("ticketType").value;
-
-        // Получаем цену выбранного билета
-        const price = [...document.querySelectorAll(".ticket-title")]
-          .find((el) => el.textContent === type)
-          .closest(".ticket-content")
-          .querySelector(".price p")
-          .childNodes[0].nodeValue.trim();
-
-        setTimeout(() => {
-          openPayment(price);
-        }, 300);
-      });
-    </script>
     <footer>
       <div class="block13">
         <div class="box5">
@@ -257,8 +128,8 @@
         <div class="box5">
           <h4>Информации про:</h4>
           <ul>
+            <li><a href="index.html">Главная</a></li>
             <li><a href="about.html">О нас</a></li>
-            <li><a href="tickets.html">Билет</a></li>
             <li><a href="galerya.html">Галерея</a></li>
             <li><a href="contacts.html">Контакты</a></li>
           </ul>
@@ -275,5 +146,6 @@
         </div>
       </div>
     </footer>
-  </body>
+    <script src="script.js"></script>
+  </body> 
 </html>

@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=landscape" />
+    <link rel="icon" href="Animals/Изображение WhatsApp 2025-11-06 в 15.47.45_a5c71d53.png" type="image/png">
 	<script src="https://kit.fontawesome.com/9044aa443b.js" crossorigin="anonymous"></script>
     <title>Paradise</title>
 </head>
-<body>
+<body class="page1">
     <nav class="main_div">
         <div class="logo_main">
             <img class="img_logo" src="Animals/Изображение WhatsApp 2025-11-06 в 15.47.45_a5c71d53.jpg" alt="">
-            <p><a href="main.html">Paradise</a></p>
+            <p><a href="index.html">Paradise</a></p>
         </div>
         <div class="menu_main">
             <ul class="menu">
@@ -28,10 +29,6 @@
         <div class="header_text">
             <h1 class="head_text">Добро пожаловать в зоопарк Paradise!</h1>
             <h2 class="head_text_2">Познакомься с животными, погуляй по зелёным площадкам и узнай много нового на наших экскурсиях.</h2>
-            <!-- <div class="head_button">
-                <button class="hb_1">Узнать больше</button>
-                <button class="hb_2">Купить билеты</button>
-            </div> -->
         </div>
     </div>
     <div class="about_header">
@@ -153,18 +150,10 @@
 			<p>Познакомься с нашими удивительными обитателями и живописными зонами отдыха.</p>
 		</div>
 		<div class="animalhead_img">
-			<div class="anima_img1">
-				<!-- <img src="Animals/6b.jpg" alt=""> -->
-			</div>
-			<div class="anima_img2">
-				<!-- <img src="Animals/86.jpg" alt=""> -->
-			</div>
-			<div class="anima_img3">
-				<!-- <img src="Animals/9117447.jpg" alt=""> -->
-			</div>
-			<div class="anima_img4">
-				<!-- <img src="Animals/97281087.jpg" alt=""> -->
-			</div>
+			<div class="anima_img1"></div>
+			<div class="anima_img2"></div>
+			<div class="anima_img3"></div>
+			<div class="anima_img4"></div>
 		</div>
 		<a href="galerya.html"><button>Смотреть больше</button></a>
 	</div>
@@ -224,74 +213,6 @@
 				<i class="fa-solid fa-angles-right"></i>
 			</div>
 		</div>
-	<script>
-		const openFormBtn = document.getElementById("openFormBtn");
-const reviewModal = document.getElementById("reviewModal");
-const closeModal = document.querySelector(".close-rew");
-const reviewForm = document.getElementById("reviewForm");
-const reviewsList = document.getElementById("reviewsList");
-
-// 💾 === Загрузка сохранённых отзывов ===
-function loadReviews() {
-    const saved = localStorage.getItem("reviews");
-    if (saved) {
-        reviewsList.innerHTML = JSON.parse(saved);
-    }
-}
-
-// 💾 === Сохранение текущих отзывов ===
-function saveReviews() {
-    localStorage.setItem("reviews", JSON.stringify(reviewsList.innerHTML));
-}
-
-loadReviews(); // загрузили при запуске
-
-
-
-// 🔘 Открыть окно
-openFormBtn.onclick = () => {
-    reviewModal.style.display = "flex";
-};
-
-// 🔘 Закрыть окно
-closeModal.onclick = () => {
-    reviewModal.style.display = "none";
-};
-
-window.onclick = (e) => {
-    if (e.target === reviewModal) reviewModal.style.display = "none";
-};
-// ⭐ Добавление нового отзыва
-reviewForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("nameReview").value;
-    const text = document.getElementById("textReview").value;
-    const rate = document.getElementById("rateReview").value;
-
-    const stars = ["★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"][rate-1];
-
-    const newReview = document.createElement("div");
-    newReview.className = "review";
-    newReview.innerHTML = `
-        <img src="Animals/вектор.webp" alt="avatar" />
-        <div>
-            <h4>${name}</h4>
-            <div class="stars">${stars}</div>
-        </div>
-        <p>${text}</p>
-    `;
-
-    // добавляем в начало
-    reviewsList.prepend(newReview);
-
-    // сохраняем!
-    saveReviews();
-
-    reviewModal.style.display = "none";
-    reviewForm.reset();
-});
-	</script>
 	<hr>
 	<div class="contact_header">
             <h1>Контактная информация</h1>
@@ -369,5 +290,6 @@ reviewForm.addEventListener("submit", (e) => {
         </div>
     </footer>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
