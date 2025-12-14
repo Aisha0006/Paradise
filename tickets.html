@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=landscape"
+    />
+    <script
+      src="https://kit.fontawesome.com/9044aa443b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Paradise</title>
+  </head>
+  <body>
+    <nav class="main_div">
+      <div class="logo_main">
+        <img
+          class="img_logo"
+          src="Animals/Изображение WhatsApp 2025-11-06 в 15.47.45_a5c71d53.jpg"
+          alt=""
+        />
+        <p><a href="main.html">Paradise</a></p>
+      </div>
+      <div class="menu_main">
+        <ul class="menu">
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="tickets.html">Билет</a></li>
+          <li><a href="galerya.html">Галерея</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header class="ticket_header_html">
+      <h1>Покупка билетов</h1>
+    </header>
+    <div class="th_container">
+      <div class="th_tickets">
+        <div class="ticket">
+          <div class="ticket-content">
+            <h3 class="ticket-title">Детский билет</h3>
+            <div class="discount">Скидка -50% до пятой покупки</div>
+            <div class="price">
+              <p>50 <span>100</span> сом</p>
+            </div>
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket-content">
+            <h3 class="ticket-title">Билет школьников</h3>
+            <div class="discount">Скидка -50% до пятой покупки</div>
+            <div class="price">
+              <p>75 <span>150</span> сом</p>
+            </div>
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket-content">
+            <h3 class="ticket-title">Билет студентов</h3>
+            <div class="discount">Скидка -50% до пятой покупки</div>
+            <div class="price">
+              <p>100 <span>200</span> сом</p>
+            </div>
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket-content">
+            <h3 class="ticket-title">Взрослый билет</h3>
+            <div class="discount">Скидка -40% до пятой покупки</div>
+            <div class="price">
+              <p>150 <span>250</span> сом</p>
+            </div>
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket-content">
+            <h3 class="ticket-title">Билет пенсионеров</h3>
+            <div class="discount">Скидка -40% до пятой покупки</div>
+            <div class="price">
+              <p>150 <span>250</span> сом</p>
+            </div>
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket-content">
+            <h3 class="ticket-title">Билет много детной семьи</h3>
+            <div class="discount">Скидка -40% до пятой покупки</div>
+            <div class="price">
+              <p>420 <span>700</span> сом</p>
+            </div>
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="telbot">
+      <form class="telform" id="tgf3">
+        <span class="close">&times;</span>
+        <p>Забронировать билет</p>
+        <label>Ваше имя:</label>
+        <input type="text" id="nameInput" required />
+        <label>Ваш номер телефона:</label>
+        <input type="text" id="phoneInput" required />
+        <label>В какой день:</label>
+        <input type="date" id="dateInput" name="date" />
+        <label>Тип билета:</label>
+        <input type="text" id="ticketType" readonly />
+        <button type="submit" id="buyTicket">Купить</button>
+      </form>
+    </div>
+
+    <div id="chatBox"></div>
+    <script>
+      let TOKEN = "7846776009:AAEx5nvH0KngFDt3wk1G2FGyVsJkXKHGm5Q";
+      let CHAT_ID = "6333476986";
+      let URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+      const buyBtn = document.querySelectorAll(".buy-btn");
+      const ticketInput = document.getElementById("ticketType");
+      const closeT = document.querySelector(".close");
+      const telbot = document.querySelector(".telbot");
+      const chat = document.getElementById("chatBox");
+      const ticketForm = document.getElementById("tgf3");
+
+      buyBtn.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const ticketName =
+            btn.parentElement.querySelector(".ticket-title").textContent;
+          ticketInput.value = ticketName;
+          telbot.style.display = "flex";
+        });
+      });
+
+      closeT.onclick = () => (telbot.style.display = "none");
+
+      window.onclick = (e) => {
+        if (e.target === telbot) telbot.style.display = "none";
+      };
+
+      function openPayment(price) {
+        const payWindow = document.createElement("div");
+        payWindow.className = "pay-modal";
+        payWindow.innerHTML = `
+    <div class="pay-box">
+      <h3>Оплата билета</h3>
+      <label>Выберите способ оплаты:</label>
+      <select id="payMethod">
+        <option value="MBank">Mbank</option>
+        <option value="О!Деньги">О!Деньги</option>
+        <option value="Balance.kg">Balance.kg</option>
+        <option value="Visa / Mastercard">Visa / Mastercard</option>
+      </select>
+      <label>Сумма к оплате:</label>
+      <input type="text" id="payAmount" value="${price} сом" readonly>
+      <button id="confirmPay">Оплатить</button>
+    </div>
+  `;
+        document.body.appendChild(payWindow);
+
+        setTimeout(() => payWindow.classList.add("show"), 10);
+
+        document.getElementById("confirmPay").onclick = () => {
+          payWindow.remove();
+          SuccessMessage();
+          sendTelegram();
+          openTelegramClient();
+        };
+      }
+
+      function SuccessMessage() {
+        chat.style.display = "block";
+        chat.innerHTML = `🐾 Спасибо за покупку!<br>✔ Оплата прошла успешно!<br>Ваш билет бронирован.`;
+        setTimeout(() => {
+          chat.style.display = "none";
+        }, 5000);
+      }
+
+      let sending = false;
+      function sendTelegram() {
+        if (sending) return;
+        sending = true;
+
+        const name = document.getElementById("nameInput").value;
+        const phone = document.getElementById("phoneInput").value;
+        const date = document.getElementById("dateInput").value;
+        const type = document.getElementById("ticketType").value;
+
+        let message = `
+📩 *Покупка билета — ОПЛАЧЕНО*  
+👤 Имя: ${name}  
+📞 Телефон: ${phone}  
+📅 Дата: ${date}  
+🎫 Тип билета: ${type}
+  `;
+
+        fetch(URL_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: "Markdown",
+          }),
+        }).finally(() => (sending = false));
+      }
+
+      // Открываем Telegram клиенту через payload в /start
+      function openTelegramClient() {
+        const name = document.getElementById("nameInput").value;
+        const phone = document.getElementById("phoneInput").value;
+        const date = document.getElementById("dateInput").value;
+        const type = document.getElementById("ticketType").value;
+
+        // Формируем payload
+        const payload = encodeURIComponent(
+          `ticket|${type}|${date}|${phone}|${name}`
+        );
+        const telegramLink = `https://t.me/Paradise_clients24_bot?start=${payload}`;
+        window.open(telegramLink, "_blank");
+      }
+
+      ticketForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        telbot.style.display = "none";
+        const type = document.getElementById("ticketType").value;
+
+        // Получаем цену выбранного билета
+        const price = [...document.querySelectorAll(".ticket-title")]
+          .find((el) => el.textContent === type)
+          .closest(".ticket-content")
+          .querySelector(".price p")
+          .childNodes[0].nodeValue.trim();
+
+        setTimeout(() => {
+          openPayment(price);
+        }, 300);
+      });
+    </script>
+    <footer>
+      <div class="block13">
+        <div class="box5">
+          <h4>О зоопарке</h4>
+          <p>
+            У нас есть контактные зоны с мелкими питомцами и зелёные площадки
+            для прогулок. Мы стремимся сочетать отдых с обучением и заботой о
+            природе. Наши зелёные пространства идеально подходят для семейного
+            досуга.
+          </p>
+        </div>
+        <div class="box5">
+          <h4>Информации про:</h4>
+          <ul>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="tickets.html">Билет</a></li>
+            <li><a href="galerya.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="box5">
+          <h4>Контакты</h4>
+          <p>+996 (553) 577 575</p>
+          <p>aishush.88</p>
+          <p>icrailovaaisha@gmail.com</p>
+        </div>
+        <div class="box5">
+          <h4>Адресс</h4>
+          <p>Кыргызстан, г. Ош, с. Озгур</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

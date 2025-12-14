@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=landscape"
+    />
+    <script
+      src="https://kit.fontawesome.com/9044aa443b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Paradise</title>
+  </head>
+  <body>
+    <nav class="main_div">
+      <div class="logo_main">
+        <img
+          class="img_logo"
+          src="Animals/Изображение WhatsApp 2025-11-06 в 15.47.45_a5c71d53.jpg"
+          alt=""
+        />
+        <p><a href="main.html">Paradise</a></p>
+      </div>
+      <div class="menu_main">
+        <ul class="menu">
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="tickets.html">Билет</a></li>
+          <li><a href="galerya.html">Галерея</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
+     <header class="galarey_header_html">
+    <h1>Галерея животных</h1>
+    </header>
+    <div class="gallery" id="gallery">
+
+    </div>
+    <div class="modal-bg" id="modalBg">
+      <div class="modal" id="modal">
+        <img id="modalImg" src="" />
+        <h2 id="modalName"></h2>
+        <p id="modalInfo"></p>
+        <p id="modalInfo1"></p>
+        <p id="modalInfo2"></p>
+        <button class="close-btn" onclick="closeModal()">Закрыть</button>
+      </div>
+    </div>
+
+    <script>
+      const animals = [
+        {
+          name: "Кролик",
+          age: 2,
+          from: "Нарын",
+          img: "Animals/dekorativnyiy-krolik-01.jpg",
+          info: "Быстрый и пушистый",
+        },
+        {
+          name: "Обьезянка",
+          age: 4,
+          from: "Москва",
+          img: "Animals/portrait-long-tailed-macaque_181624-34646.avif",
+          info: "Милый и пушистый",
+        },
+        {
+          name: "Лиса",
+          age: 4,
+          from: "Талас",
+          img: "Animals/bOc8DN6GFkzcWVVbRumfQ.jpg",
+          info: "Умная, любит ласки",
+        },
+        {
+          name: "Кот",
+          age: 3,
+          from: "Ош",
+          img: "Animals/9117447.jpg",
+          info: "Ленивый, но милый",
+        },
+        {
+          name: "Собака",
+          age: 5,
+          from: "Бишкек",
+          img: "Animals/images.jpg",
+          info: "Верный друг",
+        },
+        {
+          name: "Черепаха",
+          age: 12,
+          from: "Кыргызстан",
+          img: "Animals/cherepaha.jpg",
+          info: "Медленная и мудрая",
+        },
+        {
+          name: "Хомяк",
+          age: 1,
+          from: "Жалал-Абад",
+          img: "Animals/977-img_8805.jpeg",
+          info: "Любит грызть",
+        },
+        {
+          name: "Попугаи",
+          age: 2,
+          from: "Из магазина",
+          img: "Animals/86.jpg",
+          info: "Разговорчивые",
+        },
+        {
+          name: "Волнистые попугаи",
+          age: 3,
+          from: "Из магазина",
+          img: "Animals/ae3d5704eea1ea78bae1.jpg",
+          info: "Шумные и весёлые",
+        },
+        {
+          name: "Енот",
+          age: 3,
+          from: "Россия",
+          img: "Animals/enot.jpg",
+          info: "Обожает плотно поесть",
+        },
+        {
+          name: "Пони",
+          age: 4,
+          from: "Чуй",
+          img: "Animals/poni.jpg",
+          info: "Добрый и маленький конь",
+        },
+        {
+          name: "Еж",
+          age: 2,
+          from: "Кыргызстан",
+          img: "Animals/ёж.jpg",
+          info: "Тихий и колючий",
+        },
+        {
+          name: "Заяц",
+          age: 3,
+          from: "Токтогул",
+          img: "Animals/97281087.jpg",
+          info: "Очень быстрый",
+        },
+        {
+          name: "Сова",
+          age: 5,
+          from: "Кыргызстан",
+          img: "Animals/сова.jpg",
+          info: "Мудрая птица",
+        },
+        {
+          name: "Волк",
+          age: 5,
+          from: "Кыргызстан",
+          img: "Animals/6b.jpg",
+          info: "Спокоеный, настороженый.",
+        },
+      ];
+
+      const gallery = document.getElementById("gallery");
+      const modalBg = document.getElementById("modalBg");
+      const modalImg = document.getElementById("modalImg");
+      const modalName = document.getElementById("modalName");
+      const modalInfo = document.getElementById("modalInfo");
+      const modalInfo1 = document.getElementById("modalInfo1");
+      const modalInfo2 = document.getElementById("modalInfo2");
+
+      animals.forEach((a) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `<img src="${a.img}"><div class='card-name'>${a.name}</div>`;
+        card.onclick = () => openModal(a);
+        gallery.appendChild(card);
+      });
+
+      function openModal(a) {
+        modalImg.src = a.img;
+        modalName.textContent = a.name;
+        modalInfo.textContent = `Возраст: ${a.age}`;
+          modalInfo1.textContent = `Откуда: ${a.from}`;
+          modalInfo2.textContent = `${a.info}`;
+        modalBg.style.display = "flex";
+      };
+      window.onclick = (e) => {
+        if (e.target === modalBg) modalBg.style.display = "none";};
+      function closeModal() {
+        modalBg.style.display = "none";
+      };
+    </script>
+    <footer>
+      <div class="block13">
+        <div class="box5">
+          <h4>О зоопарке</h4>
+          <p>
+            У нас есть контактные зоны с мелкими питомцами и зелёные площадки
+            для прогулок. Мы стремимся сочетать отдых с обучением и заботой о
+            природе. Наши зелёные пространства идеально подходят для семейного
+            досуга.
+          </p>
+        </div>
+        <div class="box5">
+          <h4>Информации про:</h4>
+          <ul>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="tickets.html">Билет</a></li>
+            <li><a href="galerya.html">Галерея</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="box5">
+          <h4>Контакты</h4>
+          <p>+996 (553) 577 575</p>
+          <p>aishush.88</p>
+          <p>icrailovaaisha@gmail.com</p>
+        </div>
+        <div class="box5">
+          <h4>Адресс</h4>
+          <p>Кыргызстан, г. Ош, с. Озгур</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
