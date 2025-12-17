@@ -299,7 +299,7 @@ function page3init() {
       info: "Спокоеный, настороженый.",
     },
   ];
-  const closeBtn = document.querySelector(".")
+  const closeBtn = document.querySelector(".close-btn")
   const gallery = document.getElementById("gallery");
   const modalBg = document.getElementById("modalBg");
   const modal = document.getElementById("modal");
@@ -323,13 +323,10 @@ function page3init() {
     modalInfo2.textContent = `${a.info}`;
     modalBg.style.display = "flex";
   }
-
+  closeBtn.onclick = () => (modalBg.style.display = "none");
   window.onclick = (e) => {
     if (e.target === modalBg) modalBg.style.display = "none";
   };
-  function closeModal() {
-    modalBg.style.display = "none";
-  }
 }
 
 function page4init() {
