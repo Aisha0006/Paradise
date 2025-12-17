@@ -1,5 +1,27 @@
 // index.html
 function page1init() {
+  // JS
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("menu");
+
+  function checkWidth() {
+    if (window.innerWidth < 450) {
+      hamburger.style.display = "block";
+      menu.classList.add("collapsed");
+    } else {
+      hamburger.style.display = "none";
+      menu.classList.remove("collapsed", "show");
+      menu.style.maxHeight = "none";
+    }
+  }
+
+  window.addEventListener("resize", checkWidth);
+  window.addEventListener("load", checkWidth);
+
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+
   const openFormBtn = document.getElementById("openFormBtn");
   const reviewModal = document.getElementById("reviewModal");
   const closeModal = document.querySelector(".close-rew");
@@ -126,11 +148,11 @@ function page2init() {
         chat_id: CHAT_ID,
         text: message,
         parse_mode: "Markdown",
-      }),
+      })
     }).finally(() => (sending = false));
   }
   let TOKEN_client = "8268150775:AAHzKuaNAL-vZA9ECsClQL9mSY3zNWn4OqE";
-  let CHAT_ID_client = "6333476986";
+  let CHAT_ID_client = "6318994933";
   let URL_API_client = `https://api.telegram.org/bot${TOKEN_client}/sendMessage`;
   // Открываем Telegram клиенту через payload в /start
   function openTelegramClient() {
@@ -139,8 +161,7 @@ function page2init() {
     const date = document.getElementById("dateInput").value;
     const type = document.getElementById("ticketType").value;
     // Формируем payload
-    const payload = 
-      `🐾 Спасибо за покупку!\nВаше имя|${name}\nВаш номер|${phone}\nВаш билет|${type}\nВремя|${date}\nВаш билет бронирован.`
+    const payload = `🐾 Спасибо за покупку!\nВаше имя|${name}\nВаш номер|${phone}\nВаш билет|${type}\nВремя|${date}\nВаш билет бронирован.`;
     const telegramLink = `https://t.me/Paradise_clients24_bot?start=${payload}`;
     fetch(URL_API_client, {
       method: "POST",
@@ -278,6 +299,7 @@ function page3init() {
       info: "Спокоеный, настороженый.",
     },
   ];
+  const closeBtn = document.querySelector(".")
   const gallery = document.getElementById("gallery");
   const modalBg = document.getElementById("modalBg");
   const modal = document.getElementById("modal");
@@ -301,6 +323,7 @@ function page3init() {
     modalInfo2.textContent = `${a.info}`;
     modalBg.style.display = "flex";
   }
+
   window.onclick = (e) => {
     if (e.target === modalBg) modalBg.style.display = "none";
   };
@@ -323,15 +346,15 @@ function page4init() {
   revealOnScroll();
 }
 
-if(document.body.classList.contains("page1")) {
-    page1init();
+if (document.body.classList.contains("page1")) {
+  page1init();
 }
-if(document.body.classList.contains("page2")) {
-    page2init();
+if (document.body.classList.contains("page2")) {
+  page2init();
 }
-if(document.body.classList.contains("page3")) {
-    page3init();
+if (document.body.classList.contains("page3")) {
+  page3init();
 }
-if(document.body.classList.contains("page4")) {
-    page4init();
+if (document.body.classList.contains("page4")) {
+  page4init();
 }

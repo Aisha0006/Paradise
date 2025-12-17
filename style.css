@@ -82,6 +82,10 @@
     transform: translateY(0);
   }
 }
+.menu_main i {
+  font-size: 30px;
+  display: none;
+}
 .header {
   width: 100%;
   height: 90vh;
@@ -480,9 +484,9 @@ p {
 .animal_header button:active {
   transform: scale(0.9);
 }
-.animal_header a{
-    color: white;
-    text-decoration: none;
+.animal_header a {
+  color: white;
+  text-decoration: none;
 }
 .reviews-container {
   width: 80%;
@@ -493,7 +497,7 @@ p {
   margin-top: 20px;
 }
 .review {
-    height: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -511,9 +515,9 @@ p {
   height: 70px;
   border-radius: 50%;
 }
-.review p{
-    font-size: 18px;
-    text-align: start;
+.review p {
+  font-size: 18px;
+  text-align: start;
 }
 .stars {
   color: #ffb900;
@@ -536,7 +540,7 @@ p {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
 }
@@ -549,25 +553,29 @@ p {
   justify-content: center;
 }
 @keyframes pop {
-  from {transform: scale(0.8);}
-  to {transform: scale(1);}
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 .close-rew {
   float: right;
   cursor: pointer;
   font-size: 22px;
 }
-.close-rew:hover{
-    color: #3a9c40;
-    text-shadow: 2px 2px 4px black;
+.close-rew:hover {
+  color: #3a9c40;
+  text-shadow: 2px 2px 4px black;
 }
-#reviewForm{
-    width: 320px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+#reviewForm {
+  width: 320px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 .send-btn {
   width: 100%;
@@ -969,8 +977,8 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
-.telform{
-    background: white;
+.telform {
+  background: white;
   padding: 20px;
   border-radius: 15px;
   width: 350px;
@@ -983,9 +991,9 @@ button:hover {
 .telform p {
   width: 100%;
   font-weight: 600;
-    text-align: center;
-    padding: 0;
-    margin: 5px;
+  text-align: center;
+  padding: 0;
+  margin: 5px;
 }
 .telform input {
   width: 170px;
@@ -1005,14 +1013,16 @@ button:hover {
 }
 .pay-modal {
   position: fixed;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: .3s;
+  transition: 0.3s;
 }
 .pay-modal.show {
   opacity: 1;
@@ -1026,7 +1036,8 @@ button:hover {
 .pay-box h3 {
   margin-bottom: 10px;
 }
-.pay-box select, .pay-box input {
+.pay-box select,
+.pay-box input {
   width: 270px;
   padding: 10px;
   margin-bottom: 12px;
@@ -1074,7 +1085,7 @@ button:hover {
   }
 }
 .gallery {
-    width: 80%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -1082,8 +1093,8 @@ button:hover {
   padding: 40px 150px;
 }
 .card {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
   background: white;
   border-radius: 10px;
   overflow: hidden;
@@ -1124,11 +1135,11 @@ button:hover {
   width: 350px;
   text-align: center;
 }
-.modal p{
-    width: 100%;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+.modal p {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 .modal img {
   width: 100%;
@@ -1145,3 +1156,297 @@ button:hover {
   border-radius: 8px;
   cursor: pointer;
 }
+@media (max-width: 1440px) {
+}
+@media (max-width: 320px) {
+  .page1 {
+    width: 320px;
+  }
+  .main_div {
+    width: 320px;
+  }
+  .logo_main {
+    width: 120px;
+  }
+  .img_logo {
+    width: 50px;
+    height: 50px;
+  }
+  .logo_main p {
+    width: 70px;
+    font-size: 20px;
+  }
+  .menu_main {
+    width: 170px;
+  }
+  .menu {
+    width: 170px;
+  }
+  .menu a {
+    font-size: 15px;
+  }
+  .header {
+    width: 320px;
+    height: 80vh;
+  }
+  .black {
+    width: 320px;
+    height: 80vh;
+  }
+  .header_text {
+    width: 60%;
+    height: 50vh;
+  }
+  .head_text {
+    font-size: 30px;
+  }
+  .head_text_2 {
+    font-size: 25px;
+  }
+  .about_header {
+    width: 100%;
+    height: 40vh;
+  }
+  .head_p {
+    width: 40%;
+    height: 35vh;
+  }
+  .head_p h1 {
+    font-size: 35px;
+  }
+  .head_p p {
+    font-size: 25px;
+  }
+  .undhead_p {
+    width: 40%;
+    height: 35vh;
+  }
+  .undhead_p p {
+    font-size: 20px;
+  }
+  .our_header {
+    width: 100%;
+    height: 100vh;
+  }
+  .ourhead_p {
+    width: 100%;
+    height: 35vh;
+  }
+  .ourhead_p h1 {
+    width: 100%;
+    font-size: 35px;
+  }
+  .ourhead_p p {
+    width: 90%;
+    font-size: 20px;
+  }
+  .ourhead_li {
+    width: 90%;
+    height: 50vh;
+  }
+  .ourh_d {
+    width: 35%;
+    height: 20vh;
+  }
+  .ourh_d h1,
+  p {
+    width: 90%;
+  }
+  .ourh_d p {
+    font-size: 18px;
+  }
+  .premush_header {
+    width: 100%;
+    height: 130vh;
+  }
+  .premushhead_p {
+    width: 100%;
+    height: 40vh;
+  }
+  .premushhead_p h1 {
+    width: 100%;
+    font-size: 35px;
+  }
+  .premushhead_p p {
+    width: 70%;
+    font-size: 20px;
+  }
+  .premushhead_li {
+    width: 100%;
+    height: 80vh;
+  }
+  .premushh_d {
+    width: 40%;
+    height: 38vh;
+  }
+  .premushh_d h1,
+  p {
+    width: 90%;
+  }
+  .premushh_d p {
+    font-size: 18px;
+  }
+  .premushh_d i {
+    font-size: 50px;
+  }
+  .ticket_header {
+    width: 100%;
+  }
+  .ticket_header h1 {
+    width: 90%;
+    font-size: 35px;
+  }
+  .ticket_header button {
+    width: 200px;
+    height: 35px;
+  }
+  .tickethead_li {
+    width: 90%;
+  }
+  .ticket {
+    width: 100%;
+    height: 55px;
+  }
+  .ticket h1 {
+    width: 60%;
+    font-size: 25px;
+  }
+  .ticket_prise {
+    width: 40%;
+  }
+  .ticket_prise p {
+    font-size: 20px;
+  }
+  .ticket_prise span {
+    font-size: 17px;
+  }
+  .animal_header {
+    width: 100%;
+    height: 250vh;
+  }
+  .animalhead_p {
+    width: 90%;
+    height: 25vh;
+  }
+  .animalhead_p h1 {
+    width: 100%;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  .animalhead_p p {
+    width: 90%;
+    font-size: 20px;
+  }
+  .animalhead_img {
+    width: 90%;
+    height: 225vh;
+  }
+  .animalhead_img div {
+    width: 43%;
+    height: 400px;
+  }
+  .animal_header button {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .reviews-container {
+    width: 80%;
+  }
+  .review {
+    height: 100px;
+  }
+  .review img {
+    width: 50px;
+    height: 50px;
+  }
+  .review p {
+    font-size: 17px;
+  }
+  .stars {
+    font-size: 18px;
+  }
+  #reviewForm {
+    width: 300px;
+    height: 170px;
+  }
+  .send-btn {
+    width: 100%;
+  }
+  .contact_header {
+    width: 100%;
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact_header h1 {
+    width: 100%;
+    font-size: 35px;
+  }
+  .contact {
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cotact {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .cotact li {
+    width: 100%;
+  }
+  footer {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .block13 {
+    width: 90%;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .box5 {
+    width: 50%;
+  }
+  .box5 ul {
+    width: 90px;
+  }
+  .pay-box {
+    width: 280px;
+  }
+  .galarey_header_html {
+    height: 350px;
+  }
+  .galarey_header_html h1 {
+    font-size: 35px;
+    left: 40px;
+  }
+  .gallery {
+    width: 90%;
+    padding: 20px;
+  }
+  .modal-bg {
+    width: 100%;
+    height: 100%;
+  }
+  .modal {
+    width: 300px;
+  }
+  .modal img {
+    height: 260px;
+  }
+}
+ 
