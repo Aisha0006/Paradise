@@ -1,0 +1,3 @@
+python-telegram-bot==13.15
+mysql-connector-python==8.0.34
+Flask==2.3.4
